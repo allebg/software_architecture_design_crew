@@ -1,0 +1,103 @@
+requirements_analysis_task:
+  description: >
+    Analyze the business requirements for {application_type} with expected user load of {user_load}.
+    Consider timeline of {timeline}.
+    Identify functional requirements, non-functional requirements, constraints, and assumptions.
+    Document user stories, acceptance criteria, and system boundaries.
+  expected_output: >
+    A comprehensive requirements document containing:
+    - Functional requirements (user stories with acceptance criteria)
+    - Non-functional requirements (performance, security, scalability)
+    - System constraints and assumptions
+    - Risk assessment of requirements
+    Formatted as markdown without '```'
+  agent: requirements_analyst
+
+system_architecture_design_task:
+  description: >
+    Based on the requirements analysis, design a comprehensive system architecture for {application_type}.
+    Create high-level system components, define their interactions, and establish architectural patterns.
+    Consider microservices vs monolithic approach, data flow, and integration points.
+    Design for the specified user load of {user_load} and future scalability.
+  expected_output: >
+    A detailed system architecture document containing:
+    - High-level system diagram (described in text)
+    - Component breakdown and responsibilities
+    - Data flow and communication patterns
+    - Architectural patterns and design decisions
+    - Scalability and deployment considerations
+    Formatted as markdown without '```'
+  agent: system_architect
+  context: [requirements_analysis_task]
+
+technology_selection_task:
+  description: >
+    Select optimal technology stack for {application_type} considering timeline of {timeline}.
+    Choose programming languages, frameworks, databases, cloud services, and development tools.
+    Justify each technology choice based on requirements, team expertise, and project constraints.
+    Consider long-term maintenance and community support.
+  expected_output: >
+    A technology stack recommendation document containing:
+    - Frontend technologies (if applicable)
+    - Backend technologies and frameworks
+    - Database selection and rationale
+    - Cloud platform and services
+    - Development and deployment tools
+    - Technology decision matrix with pros/cons
+    Formatted as markdown without '```'
+  agent: technology_specialist
+  context: [requirements_analysis_task, system_architecture_design_task]
+
+security_architecture_task:
+  description: >
+    Design comprehensive security architecture for {application_type} handling {user_load} users.
+    Address authentication, authorization, data protection, and compliance requirements.
+    Consider threat modeling, security controls, and incident response procedures.
+    Ensure security is integrated into the overall system design.
+  expected_output: >
+    A security architecture document containing:
+    - Authentication and authorization strategy
+    - Data encryption and protection measures
+    - Security controls and monitoring
+    - Threat model and risk mitigation
+    - Compliance considerations
+    - Security testing and audit procedures
+    Formatted as markdown without '```'
+  agent: security_engineer
+  context: [requirements_analysis_task, system_architecture_design_task, technology_selection_task]
+
+performance_optimization_task:
+  description: >
+    Design performance optimization strategy for {application_type} to handle {user_load} users efficiently.
+    Plan caching strategies, load balancing, database optimization, and monitoring solutions.
+    Consider performance testing, capacity planning, and auto-scaling mechanisms.
+    Ensure system can handle peak loads and unexpected traffic spikes.
+  expected_output: >
+    A performance optimization document containing:
+    - Caching strategy (application, database, CDN)
+    - Load balancing and auto-scaling plans
+    - Database optimization techniques
+    - Performance monitoring and alerting
+    - Capacity planning and resource allocation
+    - Performance testing strategy
+    Formatted as markdown without '```'
+  agent: performance_engineer
+  context: [requirements_analysis_task, system_architecture_design_task, technology_selection_task]
+
+architecture_integration_task:
+  description: >
+    Integrate all architectural components into a comprehensive system design document for {application_type}.
+    Combine requirements, architecture, technology, security, and performance considerations.
+    Create implementation roadmap with phases, milestones, and risk mitigation strategies.
+    Provide final recommendations and next steps.
+  expected_output: >
+    A complete software architecture specification containing:
+    - Executive summary of the solution
+    - Integrated system architecture overview
+    - Implementation roadmap with phases
+    - Risk assessment and mitigation strategies
+    - Success metrics and KPIs
+    - Recommendations and next steps
+    Formatted as markdown without '```'
+  agent: system_architect
+  context: [requirements_analysis_task, system_architecture_design_task, technology_selection_task, security_architecture_task, performance_optimization_task]
