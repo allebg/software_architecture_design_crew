@@ -98,6 +98,5 @@ class SoftwareSystemDesignCrew():
             agents=self.agents,
             tasks=self.tasks,
             process=Process.sequential,
-            verbose=True,
-            llm="gpt-4o-mini"
+            verbose=True
         )

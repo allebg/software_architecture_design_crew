@@ -77,8 +77,7 @@ MODEL=gpt-4o-mini
 
 # OR for Google Gemini
 GOOGLE_API_KEY=your_google_api_key_here
-GEMINI_API_KEY=your_google_api_key_here  # Same as above
-MODEL=gemini/gemini-1.5-flash
+MODEL=gemini-1.5-flash
 ```
 
 ### 4. Customize Your Project
